@@ -1,0 +1,29 @@
+server:
+  port: 8063
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ms_matricula  # Cambiar URL para PostgreSQL
+    driverClassName: org.postgresql.Driver  # Cambiar el driver a PostgreSQL
+    username: postgres  # Cambia esto por tu nombre de usuario de PostgreSQL
+    password: 123456  # Cambia esto por la contraseña correspondiente
+  jpa:
+    hibernate.ddl-auto: update  # Actualiza la base de datos automáticamente si es necesario
+    generate-ddl: true
+    show-sql: true  # Muestra las consultas SQL en consola (útil para depuración)
+
+    initialization-mode: always  # Asegura que las conexiones se inicialicen correctamente
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /doc/swagger-ui.html
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8090/eureka
+  instance:
+    hostname: localhost
